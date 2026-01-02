@@ -1,3 +1,4 @@
+// Get User Data
 const getUser = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -23,6 +24,7 @@ const getUser = async () => {
 
 document.getElementById("ambilData").onclick = getUser;
 
+// Get Comments Data
 const getComments = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/comments");
@@ -48,21 +50,33 @@ const getComments = async () => {
 
 document.getElementById("ambilKomen").onclick = getComments;
 
-const sendPost = async () => {
+// Post Data
+document.getElementById("kirimData").onclick = async () => {
+  const title = document.getElementById("title").value;
+
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      title: "Belajar Fetch",
-      body: "Aku lulusan RPL",
+      title,
+      body: "isi dari post",
       userId: 1,
     }),
   });
 
   const data = await res.json();
+  alert("Data Berhasil Dikirim " + data.title);
   console.log(data);
 };
 
-sendPost();
+// Update Data PUT
+await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({title: "judul di update", body: "isi di update", userId: 1})
+});
+
+// DELETE Data 
+await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "DELETE"
+});
