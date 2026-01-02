@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hai disini kita akan belajar Fetch</h1>
+    <h1>Hai disini kita akan belajar <i>Fetch</i> secara modular</h1>
 
     <!-- POST Data -->
     <input id="title" placeholder="judul">
     <button id="kirimData">Kirim Data</button>
 
-    <!-- GET Data -->
-    <button id = "ambilData">Ambil Data User</button>
-    <button id = "ambilKomen">Ambil Data Komentar</button>
-    <ul id = "li"></ul>
+    <!-- PUT (UPDATE) -->
+    <button id="updateData">Update Data</button>
 
-    <script src="script.js"></script>
+    <!-- DELETE -->
+    <button id="hapusData">hapus Data</button>
+
+    <hr>
+
+    <!-- GET Data -->
+    <button id = "ambilUser">Ambil Data User</button>
+    <button id = "ambilKomen">Ambil Data Komentar</button>
+
+     <ul id = "list"></ul>
+
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
